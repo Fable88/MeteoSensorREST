@@ -1,18 +1,9 @@
 package ru.karpunin.meteosensor.dto;
-
-import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import ru.karpunin.meteosensor.models.Sensor;
-
-import java.util.Date;
 
 public class MeasurementDTO {
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date time;
 
     @Min(-100)
     @Max(100)
@@ -20,15 +11,7 @@ public class MeasurementDTO {
 
     @NotNull
     private boolean isRaining;
-    private Sensor sensor;
-
-    public Date getTime() {
-        return time;
-    }
-
-    public void setTime(Date time) {
-        this.time = time;
-    }
+    private SensorDTO sensor;
 
     public double getValue() {
         return value;
@@ -46,11 +29,11 @@ public class MeasurementDTO {
         isRaining = raining;
     }
 
-    public Sensor getSensor() {
+    public SensorDTO getSensor() {
         return sensor;
     }
 
-    public void setSensor(Sensor sensor) {
+    public void setSensor(SensorDTO sensor) {
         this.sensor = sensor;
     }
 }

@@ -7,4 +7,5 @@ import java.util.Date;
 
 @Repository
 public interface MeasurementRepository extends JpaRepository<Measurement, Date> {
+    int countByIsRainingTrue();
 }
